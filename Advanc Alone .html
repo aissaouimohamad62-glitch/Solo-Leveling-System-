@@ -115,30 +115,10 @@
         /* Table Styling for Charter */
         .sys-table th { background: rgba(0, 240, 255, 0.1); border-bottom: 1px solid var(--sys-cyan); color: var(--sys-cyan); }
         .sys-table td { border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        /* هذه التعديلات ستعمل فقط على الهواتف */
-@media (max-width: 768px) {
-    body {
-        padding: 10px; /* تقليل الهوامش في الشاشات الصغيرة */
-    }
-    
-    .container {
-        width: 100%; /* جعل الحاويات تأخذ عرض الشاشة بالكامل */
-        margin: 0;
-    }
-
-    /* إذا كنت تستخدم Flexbox أو Grid لعرض العناصر بجانب بعض، حولها لعمود */
-    .your-flex-class {
-        flex-direction: column;
-    }
-}
+        
     </style>
 </head>
 <body class="p-2 md:p-6 relative">
-    <!-- كود الـ CSS الخاص بتبديل اللغة (تم وضعه هنا لضمان عمله فوراً) -->
-    <style>
-        html[lang="en"] .lang-ar { display: none !important; }
-        html[lang="ar"] .lang-en { display: none !important; }
-    </style>
 
     <div class="max-w-[1400px] mx-auto grid grid-cols-1 xl:grid-cols-12 gap-6 relative z-10">
         
@@ -151,29 +131,21 @@
                 <div class="relative z-10">
                     <div class="sys-font text-xs text-[var(--sys-cyan)] mb-1 uppercase tracking-widest">Player</div>
                     <h2 class="text-2xl font-black tracking-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-                        AISSAOUI MOHAMAD <br>
-                        <span class="text-lg lang-ar">عيساوي</span>
-                        <span class="text-lg lang-en">Aissaoui</span>
+                        AISSAOUI MOHAMAD <br><span class="text-lg">عيساوي</span>
                     </h2>
                     
                     <div class="my-4 border-y border-[var(--sys-cyan)] py-2 bg-[var(--sys-cyan-glow)] bg-opacity-10">
                         <div class="sys-font text-2xl font-bold sl-glow-text">LEVEL: <span id="currentLevel">1</span></div>
-                        <div class="text-xs font-bold text-slate-300">
-                            <span class="lang-ar">المستوى الحالي</span>
-                            <span class="lang-en">Current Level</span>
-                        </div>
+                        <div class="text-xs font-bold text-slate-300">المستوى الحالي</div>
                     </div>
                     
                     <div class="mb-6">
                         <div class="sys-font text-[10px] text-[var(--sys-purple)] uppercase tracking-widest">Job Class</div>
                         <div class="font-black text-white text-lg">Shadow Monarch</div>
-                        <div class="text-xs text-slate-400">
-                            <span class="lang-ar">عاهل الظلال</span>
-                            <span class="lang-en">Sovereign of Shadows</span>
-                        </div>
+                        <div class="text-xs text-slate-400">عاهل الظلال</div>
                     </div>
                     
-                    <div class="text-right" dir="ltr">
+                    <div class="text-right">
                         <div class="flex justify-between sys-font text-xs font-bold mb-1 text-[var(--sys-cyan)]">
                             <span>EXP</span>
                             <span id="xpText">0 / 100</span>
@@ -189,12 +161,10 @@
             <div class="sl-panel p-5 group border-r-4 border-r-[var(--sys-purple)]">
                 <div class="sys-font text-[10px] sl-glow-text mb-2 uppercase flex justify-between">
                     <span>System Message</span>
-                    <span class="lang-ar">رسالة النظام</span>
-                    <span class="lang-en">System Log</span>
+                    <span>رسالة النظام</span>
                 </div>
                 <p id="motivationalQuote" class="text-sm leading-relaxed text-slate-200 transition-all duration-700 min-h-[80px] font-medium border-l-2 border-[var(--sys-purple)] pl-3">
-                    <span class="lang-ar">[جارِ تحليل الميثاق...]</span>
-                    <span class="lang-en">[Analyzing Operational Charter...]</span>
+                    [جارِ تحليل الميثاق...]
                 </p>
             </div>
 
@@ -203,24 +173,15 @@
                 <div class="sys-font text-[10px] text-slate-400 px-3 pt-2 pb-1 uppercase tracking-widest">Quest Logs</div>
                 
                 <button onclick="Router.navigate('all')" id="nav-all" class="nav-btn w-full flex items-center justify-between p-4 bg-[var(--sys-cyan)] bg-opacity-10 text-[var(--sys-cyan)] border border-[var(--sys-cyan)] font-bold transition-all">
-                    <span>
-                        <span class="lang-ar">📚 كل المهام (All)</span>
-                        <span class="lang-en">📚 All Quests</span>
-                    </span>
+                    <span>📚 كل المهام (All)</span>
                     <span class="sys-font" id="cnt-all">0</span>
                 </button>
                 <button onclick="Router.navigate('active')" id="nav-active" class="nav-btn w-full flex items-center justify-between p-4 text-slate-400 hover:bg-white/5 font-bold transition-all">
-                    <span>
-                        <span class="lang-ar">⚔️ المهام النشطة (Active)</span>
-                        <span class="lang-en">⚔️ Active Quests</span>
-                    </span>
+                    <span>⚔️ المهام النشطة (Active)</span>
                     <span class="sys-font" id="cnt-active-val">0</span>
                 </button>
                 <button onclick="Router.navigate('charter')" id="nav-charter" class="nav-btn w-full flex items-center justify-between p-4 text-[var(--sys-purple)] hover:bg-[var(--sys-purple)] hover:bg-opacity-10 font-black transition-all">
-                    <span>
-                        <span class="lang-ar">📜 الميثاق العملياتي (System)</span>
-                        <span class="lang-en">📜 System Charter</span>
-                    </span>
+                    <span>📜 الميثاق العملياتي (System)</span>
                     <span class="sys-font">∞</span>
                 </button>
             </nav>
@@ -234,17 +195,9 @@
                 <div class="sys-font text-[10px] absolute -top-2 left-4 bg-[var(--sys-bg-dark)] px-2 text-[var(--sys-cyan)]">ENVIRONMENT STATUS</div>
                 
                 <div class="flex items-center gap-6">
-                    <button id="start-btn" class="bg-blue-500 text-white px-4 py-2 rounded">تشغيل الصوت في الموقع </button>
-                    <!-- System Language Toggle Button -->
-                    <button onclick="SystemLang.toggle()" class="sl-btn px-3 py-1 flex items-center justify-center gap-2 text-xs font-bold text-white transition-all">
-                        <span class="text-[var(--sys-cyan)]">🌐</span>
-                        <span class="lang-ar sys-font">EN</span>
-                        <span class="lang-en">عربي</span>
-                    </button>
-
                     <div class="flex items-center gap-3">
                         <span class="text-2xl opacity-80">⏳</span>
-                        <div dir="ltr">
+                        <div>
                             <div id="realTime" class="sys-font font-bold text-xl text-white tracking-widest">--:--:--</div>
                             <div id="realDate" class="sys-font text-[10px] text-[var(--sys-cyan)] uppercase tracking-widest">--/--/----</div>
                         </div>
@@ -253,10 +206,7 @@
                     <div class="flex items-center gap-2">
                         <span id="seasonIcon" class="text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">🌍</span>
                         <div>
-                            <div id="seasonText" class="font-bold text-white text-sm">
-                                <span class="lang-ar">جاري التحديد</span>
-                                <span class="lang-en">Locating</span>
-                            </div>
+                            <div id="seasonText" class="font-bold text-white text-sm">جاري التحديد</div>
                             <div class="sys-font text-[10px] text-slate-400 uppercase">Season</div>
                         </div>
                     </div>
@@ -264,40 +214,30 @@
                 
                 <div class="flex items-center gap-6 bg-black/40 px-6 py-2 border border-[var(--sys-cyan)] border-opacity-30 clip-edges">
                     <div class="text-center">
-                        <div id="weatherTemp" class="sys-font font-bold text-[var(--sys-cyan)] text-lg drop-shadow-[0_0_5px_var(--sys-cyan)]" dir="ltr">--°C</div>
-                        <div class="text-[9px] font-black text-slate-400 uppercase">
-                            <span class="lang-ar">الحرارة</span>
-                            <span class="lang-en">TEMP</span>
-                        </div>
+                        <div id="weatherTemp" class="sys-font font-bold text-[var(--sys-cyan)] text-lg drop-shadow-[0_0_5px_var(--sys-cyan)]">--°C</div>
+                        <div class="text-[9px] font-black text-slate-400 uppercase">الحرارة</div>
                     </div>
                     <div class="h-6 w-px bg-[var(--sys-purple)] opacity-50"></div>
                     <div class="text-center">
-                        <div id="weatherHum" class="sys-font font-bold text-[var(--sys-purple)] text-lg drop-shadow-[0_0_5px_var(--sys-purple)]" dir="ltr">--%</div>
-                        <div class="text-[9px] font-black text-slate-400 uppercase">
-                            <span class="lang-ar">الرطوبة</span>
-                            <span class="lang-en">HUMIDITY</span>
-                        </div>
+                        <div id="weatherHum" class="sys-font font-bold text-[var(--sys-purple)] text-lg drop-shadow-[0_0_5px_var(--sys-purple)]">--%</div>
+                        <div class="text-[9px] font-black text-slate-400 uppercase">الرطوبة</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Header & Timer -->
+            <!-- Header & Timer (Daily Quest Limit) -->
             <header class="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
                 <div>
                     <div class="sys-font text-xs text-[var(--sys-cyan)] tracking-[0.3em] uppercase mb-1">Central Command</div>
                     <h1 class="text-3xl md:text-4xl font-black text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-                        <span class="lang-ar">غرفة العمليات المركزية</span>
-                        <span class="lang-en sys-font">Central Command Room</span>
+                        غرفة العمليات المركزية
                     </h1>
-                    <p class="text-[var(--sys-purple)] mt-1 font-bold text-sm" id="greetingText">
-                        <span class="lang-ar">مرحباً بك أيها القائد</span>
-                        <span class="lang-en">Welcome back, Commander</span>
-                    </p>
+                    <p class="text-[var(--sys-purple)] mt-1 font-bold text-sm" id="greetingText">مرحباً بك أيها القائد</p>
                 </div>
                 
-                <div id="timerContainer" class="sl-panel px-6 py-3 md:py-4 flex flex-row-reverse xl:flex-row items-center gap-6 w-full xl:w-auto justify-between border-l-4 border-l-[var(--sys-cyan)]" dir="ltr">
-                    <div class="text-right xl:text-left">
-                        <div class="flex items-center gap-2 mb-1 justify-end xl:justify-start">
+                <div id="timerContainer" class="sl-panel px-6 py-3 md:py-4 flex items-center gap-6 w-full xl:w-auto justify-between border-l-4 border-l-[var(--sys-cyan)]">
+                    <div class="text-right">
+                        <div class="flex items-center gap-2 mb-1 justify-end">
                             <span class="sys-font text-[10px] uppercase tracking-[0.2em] text-[var(--sys-cyan)]">Quest Time Limit</span>
                             <span id="timerStatus" class="sys-font text-[9px] px-2 py-0.5 bg-slate-800 border border-slate-600 text-slate-300 uppercase">Idle</span>
                         </div>
@@ -306,103 +246,33 @@
                     <div class="flex gap-2">
                         <button onclick="Pomodoro.toggle()" id="timerBtn" class="sl-btn w-12 h-12 flex items-center justify-center text-xl">▶️</button>
                         <button onclick="Pomodoro.reset()" class="bg-black/50 border border-white/10 hover:border-white/30 text-white w-12 h-12 flex items-center justify-center transition-all text-xl">🔄</button>
-                        <button onclick="UI.toggleTimerSettings()" class="bg-black/50 border border-white/10 hover:border-[var(--sys-cyan)] text-white w-12 h-12 flex items-center justify-center transition-all text-xl" title="Settings">⚙️</button>
+                        <button onclick="UI.toggleTimerSettings()" class="bg-black/50 border border-white/10 hover:border-[var(--sys-cyan)] text-white w-12 h-12 flex items-center justify-center transition-all text-xl" title="إعداد المؤقت">⚙️</button>
                     </div>
                 </div>
             </header>
-
-            <div id="timerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4">
-                <div class="relative max-w-lg w-full sl-panel p-6">
-                    <button onclick="UI.toggleTimerSettings()" class="absolute top-4 left-4 text-slate-300 hover:text-white">✕</button>
-                    <h3 class="text-xl font-black text-white mb-4">
-                        <span class="lang-ar">إعدادات مؤقت المهمة</span>
-                        <span class="lang-en">Quest Timer Settings</span>
-                    </h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <label class="flex flex-col text-sm text-slate-200">
-                            <span class="lang-ar">ساعات</span>
-                            <span class="lang-en">Hours</span>
-                            <input id="inputHours" type="number" min="0" value="0" class="mt-2 bg-[#02040a] border border-[var(--sys-cyan)] text-white p-3 rounded outline-none" />
-                        </label>
-                        <label class="flex flex-col text-sm text-slate-200">
-                            <span class="lang-ar">دقائق</span>
-                            <span class="lang-en">Minutes</span>
-                            <input id="inputMinutes" type="number" min="0" max="59" value="5" class="mt-2 bg-[#02040a] border border-[var(--sys-cyan)] text-white p-3 rounded outline-none" />
-                        </label>
-                    </div>
-                    <p class="mt-4 text-slate-400 text-sm">
-                        <span class="lang-ar">يمكنك هنا اختيار مدة المؤقت التي تريدها قبل بدء المهمة.</span>
-                        <span class="lang-en">Choose the timer duration before starting your quest.</span>
-                    </p>
-                    <div class="mt-6 flex flex-wrap gap-3 justify-end">
-                        <button onclick="UI.toggleTimerSettings()" class="px-4 py-3 bg-slate-800 border border-slate-600 text-slate-200 rounded">
-                            <span class="lang-ar">إلغاء</span>
-                            <span class="lang-en">Cancel</span>
-                        </button>
-                        <button onclick="Pomodoro.saveSettings()" class="px-4 py-3 bg-[var(--sys-cyan)] text-black font-bold rounded">
-                            <span class="lang-ar">حفظ المؤقت</span>
-                            <span class="lang-en">Save Timer</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="milestoneModal" class="fixed inset-0 z-40 hidden items-center justify-center bg-black/80 p-4">
-                <div class="relative max-w-md w-full sl-panel p-6">
-                    <button onclick="Milestone.hide()" class="absolute top-4 left-4 text-slate-300 hover:text-white">✕</button>
-                    <h2 class="text-2xl font-black text-white mb-3">
-                        <span class="lang-ar">تهانينا! مستوى جديد متاح</span>
-                        <span class="lang-en">Congrats! New Level Reached</span>
-                    </h2>
-                    <p class="text-slate-300 mb-3">
-                        <span class="lang-ar">لقد وصلت إلى المستوى</span>
-                        <span class="lang-en">You reached level</span>
-                        <span id="milestoneLevelText"></span>
-                    </p>
-                    <p id="milestoneMessage" class="text-slate-400 mb-4"></p>
-                    <p class="text-slate-500 text-sm">
-                        <span class="lang-ar">المستوى السابق:</span>
-                        <span class="lang-en">Previous level:</span>
-                        <span id="milestoneOldLevel"></span>
-                    </p>
-                    <button onclick="Milestone.hide()" class="mt-6 px-4 py-3 bg-[var(--sys-cyan)] text-black rounded font-bold">
-                        <span class="lang-ar">متابعة</span>
-                        <span class="lang-en">Continue</span>
-                    </button>
-                </div>
-            </div>
 
             <!-- Stats (Status Info) -->
             <section id="statsSection" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="sl-panel p-5 border-t-2 border-t-[var(--sys-cyan)] bg-gradient-to-b from-[rgba(0,240,255,0.05)] to-transparent">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-slate-300 text-xs font-black">
-                            <span class="lang-ar">النفوذ المكتسب</span>
-                            <span class="lang-en">Acquired Authority</span>
-                        </span>
+                        <span class="text-slate-300 text-xs font-black">النفوذ المكتسب</span>
                         <span class="sys-font text-[10px] text-[var(--sys-cyan)]">AUTHORITY (PT)</span>
                     </div>
-                    <div class="sys-font text-3xl font-bold text-white sl-glow-text" id="stat-weight" dir="ltr">0</div>
+                    <div class="sys-font text-3xl font-bold text-white sl-glow-text" id="stat-weight">0</div>
                 </div>
                 <div class="sl-panel p-5 border-t-2 border-t-[var(--sys-purple)] bg-gradient-to-b from-[rgba(157,78,221,0.05)] to-transparent">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-slate-300 text-xs font-black">
-                            <span class="lang-ar">معدل الفتك بالأهداف</span>
-                            <span class="lang-en">Lethality Rate</span>
-                        </span>
+                        <span class="text-slate-300 text-xs font-black">معدل الفتك بالأهداف</span>
                         <span class="sys-font text-[10px] text-[var(--sys-purple)]">LETHALITY (%)</span>
                     </div>
-                    <div class="sys-font text-3xl font-bold text-white drop-shadow-[0_0_8px_var(--sys-purple)]" id="stat-percent" dir="ltr">0%</div>
+                    <div class="sys-font text-3xl font-bold text-white drop-shadow-[0_0_8px_var(--sys-purple)]" id="stat-percent">0%</div>
                 </div>
                 <div class="sl-panel p-5 border-t-2 border-t-emerald-500 bg-gradient-to-b from-[rgba(16,185,129,0.05)] to-transparent">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-slate-300 text-xs font-black">
-                            <span class="lang-ar">الرصيد المعرفي التراكمي</span>
-                            <span class="lang-en">Total Accumulated EXP</span>
-                        </span>
+                        <span class="text-slate-300 text-xs font-black">الرصيد المعرفي التراكمي</span>
                         <span class="sys-font text-[10px] text-emerald-400">TOTAL EXP</span>
                     </div>
-                    <div class="sys-font text-3xl font-bold text-white drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" id="stat-xp" dir="ltr">0</div>
+                    <div class="sys-font text-3xl font-bold text-white drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" id="stat-xp">0</div>
                 </div>
             </section>
 
@@ -411,17 +281,14 @@
                 <!-- Task Input -->
                 <section class="sl-panel p-2 flex flex-wrap gap-2 items-center focus-within:border-[var(--sys-cyan)] transition-colors">
                     <div class="sys-font text-[10px] text-[var(--sys-cyan)] absolute -top-2 right-4 bg-[var(--sys-bg-dark)] px-2">NEW QUEST</div>
-                    <input type="text" id="taskInput" placeholder="أدخل هدفك (Daily Quest) / Enter Quest..." class="flex-grow bg-transparent border-none outline-none px-6 py-4 text-lg font-medium placeholder:text-slate-600 text-white">
+                    <input type="text" id="taskInput" placeholder="أدخل هدفك (Daily Quest)..." class="flex-grow bg-transparent border-none outline-none px-6 py-4 text-lg font-medium placeholder:text-slate-600 text-white">
                     <div class="flex gap-2 p-2 w-full md:w-auto">
                         <select id="prioritySelect" class="bg-[var(--sys-bg-dark)] sys-font font-bold px-4 py-2 border border-[var(--sys-cyan)] border-opacity-30 outline-none text-[var(--sys-cyan)]">
-                            <option value="high">S-RANK (قصوى | Max)</option>
-                            <option value="medium" selected>A-RANK (متوازنة | Balanced)</option>
-                            <option value="low">C-RANK (بسيطة | Basic)</option>
+                            <option value="high">S-RANK (قصوى)</option>
+                            <option value="medium" selected>A-RANK (متوازنة)</option>
+                            <option value="low">C-RANK (بسيطة)</option>
                         </select>
-                        <button onclick="Actions.addTask()" class="sl-btn px-8 py-3 font-black text-xs text-white uppercase tracking-widest">
-                            <span class="lang-ar">إضافة</span>
-                            <span class="lang-en">Add Quest</span>
-                        </button>
+                        <button onclick="Actions.addTask()" class="sl-btn px-8 py-3 font-black text-xs text-white uppercase tracking-widest">إضافة</button>
                     </div>
                 </section>
 
@@ -431,250 +298,119 @@
                 </div>
             </div>
 
-            <!-- SYSTEM CHARTER VIEW -->
+            <!-- SYSTEM CHARTER VIEW (Hidden by default) -->
             <div id="charterView" class="hidden flex-col flex-grow sl-panel p-6 overflow-y-auto h-[600px] border-2 border-[var(--sys-purple)]">
                 <div class="text-center mb-8 border-b border-[var(--sys-purple)] pb-4">
                     <div class="sys-font text-[var(--sys-cyan)] tracking-[0.5em] text-sm mb-2">SYSTEM INTEGRATED CHARTER</div>
-                    <h2 class="text-3xl font-black text-white drop-shadow-[0_0_10px_var(--sys-purple)]">
-                        <span class="lang-ar">الميثاق العملياتي المتكامل</span>
-                        <span class="lang-en">Integrated Operational Charter</span>
-                    </h2>
-                    <p class="text-slate-400 mt-2 text-sm font-bold">
-                        <span class="lang-ar">النسخة النهائية - تم تفعيل نظام "الألعاب الذهنية" والترابط العصبي.</span>
-                        <span class="lang-en">Final Version - "Mental Games" and Neural Link Activated.</span>
-                    </p>
+                    <h2 class="text-3xl font-black text-white drop-shadow-[0_0_10px_var(--sys-purple)]">الميثاق العملياتي المتكامل</h2>
+                    <p class="text-slate-400 mt-2 text-sm font-bold">النسخة النهائية - تم تفعيل نظام "الألعاب الذهنية" والترابط العصبي.</p>
                 </div>
 
                 <div class="space-y-10 text-sm">
                     <!-- Section 1 -->
                     <section>
-                        <h3 class="text-xl font-bold text-[var(--sys-cyan)] mb-4 flex items-center gap-2">
-                            <span class="text-2xl">⚡</span> 
-                            <span class="lang-ar">أولاً: نظام التبادل الروحاني (05:00 - 06:00)</span>
-                            <span class="lang-en">First: Spiritual Exchange System (05:00 - 06:00)</span>
-                        </h3>
+                        <h3 class="text-xl font-bold text-[var(--sys-cyan)] mb-4 flex items-center gap-2"><span class="text-2xl">⚡</span> أولاً: نظام التبادل الروحاني (05:00 - 06:00)</h3>
                         <div class="bg-black/50 p-4 border-l-2 border-[var(--sys-cyan)]">
                             <ul class="space-y-3 text-slate-200">
-                                <li>
-                                    <strong class="text-[var(--sys-purple)]">
-                                        <span class="lang-ar">الأيام الوترية (أحد، ثلاثاء، خميس):</span>
-                                        <span class="lang-en">Odd Days (Sun, Tue, Thu):</span>
-                                    </strong> 
-                                    <span class="lang-ar">ورد تدبر + تكرار ومراجعة لما سبق.</span>
-                                    <span class="lang-en">Quran Contemplation + Review and repetition of previous verses.</span>
-                                </li>
-                                <li>
-                                    <strong class="text-[var(--sys-purple)]">
-                                        <span class="lang-ar">الأيام الزوجية (إثنين، أربعاء، سبت):</span>
-                                        <span class="lang-en">Even Days (Mon, Wed, Sat):</span>
-                                    </strong> 
-                                    <span class="lang-ar">حفظ جديد + ورد تدبر.</span>
-                                    <span class="lang-en">New Memorization + Quran Contemplation.</span>
-                                </li>
-                                <li>
-                                    <strong class="text-[var(--sys-purple)]">
-                                        <span class="lang-ar">يوم الجمعة:</span>
-                                        <span class="lang-en">Friday:</span>
-                                    </strong> 
-                                    <span class="lang-ar">قراءة سورة الكهف فقط (استراحة ذهنية).</span>
-                                    <span class="lang-en">Reading Surat Al-Kahf only (Mental Break).</span>
-                                </li>
+                                <li><strong class="text-[var(--sys-purple)]">الأيام الوترية (أحد، ثلاثاء، خميس):</strong> ورد تدبر + تكرار ومراجعة لما سبق.</li>
+                                <li><strong class="text-[var(--sys-purple)]">الأيام الزوجية (إثنين، أربعاء، سبت):</strong> حفظ جديد + ورد تدبر.</li>
+                                <li><strong class="text-[var(--sys-purple)]">يوم الجمعة:</strong> قراءة سورة الكهف فقط (استراحة ذهنية).</li>
                             </ul>
                         </div>
                     </section>
-                    
-                    <section>
-                        <h3 class="text-xl font-bold text-[var(--sys-cyan)] mb-4 flex items-center gap-2" style="color:#00f0ff;">
-                            <span class="text-2xl">🕌</span> 
-                            <span class="lang-ar">ثانياً: الجدول اليومي الموحد (المعدل للصيام والقيام)</span>
-                            <span class="lang-en">Second: Unified Daily Schedule (Fasting & Qiyam Mode)</span>
-                        </h3>
+                     <section>
+                        <h3 class="text-xl font-bold text-[var(--sys-cyan)] mb-4 flex items-center gap-2" style="color:#00f0ff;"><span class="text-2xl">🕌​🧎​​</span> ثانياً: الجدول اليومي الموحد (المعدل للصيام والقيام</h3>
                         <div class="bg-black/50 p-4 border-l-2 border-[var(--sys-cyan)]">
                             <ul class="space-y-3 text-slate-200">
-                                <li>
-                                    <strong class="text-[var(--sys-purple)]">
-                                        <span class="lang-ar">1. نظام أيام الصيام (يوم الاثنين ويوم الخميس):</span>
-                                        <span class="lang-en">1. Fasting Days System (Monday & Thursday):</span>
-                                    </strong> 
-                                    <br> • 
-                                    <span class="lang-ar">02:45 - 05:00: كتلة القيام والسحور: (صلاة القيام + سحور بروتيني + أذكار + مراجعة ذهنية سريعة).</span>
-                                    <span class="lang-en">02:45 - 05:00: Night Prayer & Suhoor Block (Qiyam + Protein Suhoor + Adhkar + Quick Mental Review).</span>
-                                    <br> • 
-                                    <span class="lang-ar">05:00: صلاة الفجر والالتحاق بالجدول أدناه.</span>
-                                    <span class="lang-en">05:00: Fajr Prayer and joining the main schedule below.</span>
-                                </li>
+                                <li><strong class="text-[var(--sys-purple)]">1. نظام أيام الصيام (يوم الاثنين ويوم الخميس):</strong> 
+                                  <br>  •	02:45 - 05:00: كتلة القيام والسحور: (صلاة القيام + سحور بروتيني + أذكار + مراجعة ذهنية سريعة).
+                                  <br>
+•	05:00: صلاة الفجر والالتحاق بالجدول أدناه.
+<br>
+</li>
+                            
                             </ul>
                         </div>
                     </section>
-
+<br>
                     <!-- Section 2: Table -->
                     <section>
-                        <h3 class="text-xl font-bold text-[var(--sys-cyan)] mb-4 flex items-center gap-2">
-                            <span class="text-2xl">📅</span> 
-                            <span class="lang-ar">ثالثاً: الجدول اليومي الموحد (الأحد - الأربعاء)</span>
-                            <span class="lang-en">Third: Unified Daily Schedule (Sunday - Wednesday)</span>
-                        </h3>
+                        <h3 class="text-xl font-bold text-[var(--sys-cyan)] mb-4 flex items-center gap-2"><span class="text-2xl">📅</span> ثانياً: الجدول اليومي الموحد (الأحد - الأربعاء)</h3>
                         <div class="overflow-x-auto">
-                            <table class="w-full text-right sys-table text-slate-200" dir="rtl">
-                                <thead class="lang-ar">
+                            <table class="w-full text-right sys-table text-slate-200">
+                                <thead>
                                     <tr>
                                         <th class="p-3 sys-font">التوقيت (TIME)</th>
                                         <th class="p-3">النشاط (QUEST)</th>
                                         <th class="p-3">التفاصيل والهدف</th>
                                     </tr>
                                 </thead>
-                                <thead class="lang-en" dir="ltr">
-                                    <tr style="text-align: left;">
-                                        <th class="p-3 sys-font">TIME</th>
-                                        <th class="p-3">QUEST / ACTIVITY</th>
-                                        <th class="p-3">DETAILS & GOALS</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold" dir="ltr">05:00 - 06:00</td>
-                                        <td class="p-3 font-bold text-white">
-                                            <span class="lang-ar">الكتلة الروحية</span><span class="lang-en">Spiritual Block</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">ورد القرآن + الفجر وأذكار + تمدد إطالة</span><span class="lang-en">Quran reading + Fajr & Adhkar + Stretching</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold text-[var(--sys-cyan)]" dir="ltr">06:00 - 08:30</td>
-                                        <td class="p-3 font-bold text-[var(--sys-cyan)]">
-                                            <span class="lang-ar">البرمجة العميقة</span><span class="lang-en">Deep Programming</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">مشروع AiMoha (Python/JS)</span><span class="lang-en">AiMoha Project (Python/JS)</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold text-[var(--sys-purple)]" dir="ltr">08:30 - 10:30</td>
-                                        <td class="p-3 font-bold text-[var(--sys-purple)]">
-                                            <span class="lang-ar">أكاديمية AI</span><span class="lang-en">AI Academy</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">كورسات (ML, LLMs) وتطبيق خوارزميات</span><span class="lang-en">Courses (ML, LLMs) and Algorithm Application</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold" dir="ltr">10:30 - 12:00</td>
-                                        <td class="p-3 font-bold text-white">
-                                            <span class="lang-ar">إتقان الإنجليزية</span><span class="lang-en">English Mastery</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">انغماس تقني + بناء مفردات + Shadowing</span><span class="lang-en">Tech Immersion + Vocabulary Building + Shadowing</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold text-slate-500" dir="ltr">12:00 - 13:00</td>
-                                        <td class="p-3 font-bold text-slate-400">
-                                            <span class="lang-ar">الاستراحة الكبرى</span><span class="lang-en">Major Rest</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">الظهر + غداء بروتيني</span><span class="lang-en">Dhuhr Prayer + High Protein Lunch</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold text-emerald-400" dir="ltr">13:00 - 15:00</td>
-                                        <td class="p-3 font-bold text-emerald-400">
-                                            <span class="lang-ar">المعمل التطبيقي</span><span class="lang-en">Practical Lab</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">مشاريع AI واقعية وربطها بالبرمجيات</span><span class="lang-en">Real AI Projects and Software Integration</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold text-rose-400" dir="ltr">15:00 - 16:30</td>
-                                        <td class="p-3 font-bold text-rose-400">
-                                            <span class="lang-ar">PPL المطور</span><span class="lang-en">Advanced PPL</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">دفع، سحب، أرجل + كالستينيكس</span><span class="lang-en">Push, Pull, Legs + Calisthenics</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold" dir="ltr">17:30 - 19:30</td>
-                                        <td class="p-3 font-bold text-amber-400">
-                                            <span class="lang-ar">العلوم التجريبية</span><span class="lang-en">Experimental Sciences</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">رياضيات، فيزياء، علوم (تركيز أكاديمي) /الأحد رياضيات /الإثنين علوم. ط /الثلاثاء فيزياء/ الأربعاء مراجعة راياضيات هذا الأسبوع</span>
-                                            <span class="lang-en">Math, Physics, Sciences / Sun: Math / Mon: Science / Tue: Physics / Wed: Math Weekly Review</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold" dir="ltr">17:30 - 19:30</td>
-                                        <td class="p-3 font-bold text-amber-400">
-                                            <span class="lang-ar">ساعة النشاط والوجبة</span><span class="lang-en">Activity & Meal Hour</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">صلاة المغرب +الشيخ الرسلان+ عشاء خفيف + الرياضة الخارجية المحددة.</span><span class="lang-en">Maghrib Prayer + Sheikh Raslan + Light Dinner + Outdoor Sports.</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold text-sky-400" dir="ltr">20:30 - 21:30</td>
-                                        <td class="p-3 font-bold text-sky-400">
-                                            <span class="lang-ar">الارتقاء الذهني و البدني</span><span class="lang-en">Mental & Physical Ascension</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">كتب، وثائقيات + الألعاب الذهنية +الرياضة البدنية</span><span class="lang-en">Books, Documentaries + Mental Games + Physical Sports</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 sys-font font-bold text-sky-400" dir="ltr">20:30 - 21:30</td>
-                                        <td class="p-3 font-bold text-sky-400">
-                                            <span class="lang-ar">تجهيز النظام + النوم العميق</span><span class="lang-en">System Setup + Deep Sleep</span>
-                                        </td>
-                                        <td class="p-3">
-                                            <span class="lang-ar">تخطيط الغد + أذكار النوم + إيقاف كامل للأنظمة لبدء الاستشفاء العضلي والذهني</span><span class="lang-en">Planning Tomorrow + Sleep Adhkar + Complete System Shutdown for Mental/Muscle Recovery</span>
-                                        </td>
-                                    </tr>
+                                    <tr><td class="p-3 sys-font font-bold">05:00 - 06:00</td><td class="p-3 font-bold text-white">الكتلة الروحية</td><td class="p-3">ورد القرآن + الفجر وأذكار + تمدد إطالة</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold text-[var(--sys-cyan)]">06:00 - 08:30</td><td class="p-3 font-bold text-[var(--sys-cyan)]">البرمجة العميقة</td><td class="p-3">مشروع AiMoha (Python/JS)</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold text-[var(--sys-purple)]">08:30 - 10:30</td><td class="p-3 font-bold text-[var(--sys-purple)]">أكاديمية AI</td><td class="p-3">كورسات (ML, LLMs) وتطبيق خوارزميات</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold">10:30 - 12:00</td><td class="p-3 font-bold text-white">إتقان الإنجليزية</td><td class="p-3">انغماس تقني + بناء مفردات + Shadowing</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold text-slate-500">12:00 - 13:00</td><td class="p-3 font-bold text-slate-400">الاستراحة الكبرى</td><td class="p-3">الظهر + غداء بروتيني</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold text-emerald-400">13:00 - 15:00</td><td class="p-3 font-bold text-emerald-400">المعمل التطبيقي</td><td class="p-3">مشاريع AI واقعية وربطها بالبرمجيات</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold text-rose-400">15:00 - 16:30</td><td class="p-3 font-bold text-rose-400">PPL المطور</td><td class="p-3">دفع، سحب، أرجل + كالستينيكس</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold">17:30 - 19:30</td><td class="p-3 font-bold text-amber-400">العلوم التجريبية</td><td class="p-3">رياضيات، فيزياء، علوم (تركيز أكاديمي) /الأحد رياضيات /الإثنين علوم. ط /الثلاثاء فيزياء/ الأربعاء مراجعة راياضيات هذا الأسبوع</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold">17:30 - 19:30</td><td class="p-3 font-bold text-amber-400">ساعة النشاط والوجبة</td><td class="p-3">صلاة المغرب +الشيخ الرسلان+ عشاء خفيف + الرياضة الخارجية المحددة.</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold text-sky-400">20:30 - 21:30</td><td class="p-3 font-bold text-sky-400">الارتقاء الذهني و البدني</td><td class="p-3">كتب، وثائقيات + الألعاب الذهنية +الرياضة البدنية</td></tr>
+                                    <tr><td class="p-3 sys-font font-bold text-sky-400">20:30 - 21:30</td><td class="p-3 font-bold text-sky-400">تجهيز النظام + النوم العميق</td><td class="p-3">تخطيط الغد + أذكار النوم + إيقاف كامل للأنظمة لبدء الاستشفاء العضلي والذهني</td></tr>
                                 </tbody>
                             </table>
                         </div>
-                        
+                        <!-- School Schedule Note -->
                         <div class="mt-4 p-4 border border-amber-500/30 bg-amber-500/5 text-amber-200">
-                            <strong>
-                                <span class="lang-ar">📌 المهام المدرسية الأسبوعية:</span>
-                                <span class="lang-en">📌 Weekly School Tasks:</span>
-                            </strong> 
-                            <span class="lang-ar">(الأحد: رياضيات) - (الإثنين: علوم طبيعية) - (الثلاثاء: فيزياء) - (الأربعاء: مراجعة رياضيات) - (الجمعة: مراجعة علوم) - (السبت: مراجعة فيزياء).</span>
-                            <span class="lang-en">(Sun: Math) - (Mon: Science) - (Tue: Physics) - (Wed: Math Review) - (Fri: Science Review) - (Sat: Physics Review).</span>
+                            <strong>📌 المهام المدرسية الأسبوعية:</strong> (الأحد: رياضيات) - (الإثنين: علوم طبيعية) - (الثلاثاء: فيزياء) - (الأربعاء: مراجعة رياضيات) - (الجمعة: مراجعة علوم) - (السبت: مراجعة فيزياء).
                         </div>
                     </section>
 
                     <!-- Section 3: Games & Sports -->
                     <section>
-                        <h3 class="text-xl font-bold text-[var(--sys-purple)] mb-4 flex items-center gap-2">
-                            <span class="text-2xl">🧠</span> 
-                            <span class="lang-ar">رابعاً: الألعاب الذهنية والرياضة البدنية</span>
-                            <span class="lang-en">Fourth: Mental Games & Physical Sports</span>
-                        </h3>
+                        <h3 class="text-xl font-bold text-[var(--sys-purple)] mb-4 flex items-center gap-2"><span class="text-2xl">🧠</span> ثالثاً: الألعاب الذهنية والرياضة البدنية</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-black/40 p-4 border border-[var(--sys-cyan)]/30">
-                                <h4 class="font-bold text-[var(--sys-cyan)] mb-2">
-                                    <span class="lang-ar">الألعاب الذهنية (الاستراتيجية)</span>
-                                    <span class="lang-en">Mental Games (Strategy)</span>
-                                </h4>
+                                <h4 class="font-bold text-[var(--sys-cyan)] mb-2">الألعاب الذهنية (الاستراتيجية)</h4>
                                 <ul class="space-y-2 text-slate-300">
-                                    <li>♟️ <strong><span class="lang-ar">الشطرنج (الإثنين):</span><span class="lang-en">Chess (Monday):</span></strong> <span class="lang-ar">تفكير مستقبلي، يخدم خوارزميات AI.</span><span class="lang-en">Forward thinking, serves AI algorithms.</span></li>
-                                    <li>🔢 <strong><span class="lang-ar">سودوكو (الأربعاء):</span><span class="lang-en">Sudoku (Wednesday):</span></strong> <span class="lang-ar">منطق واستنتاج، أساسي لتنقيح الأكواد (Debugging).</span><span class="lang-en">Logic & Deduction, essential for Debugging.</span></li>
-                                    <li>🧠 <strong><span class="lang-ar">Dual N-Back (الجمعة):</span><span class="lang-en">Dual N-Back (Friday):</span></strong> <span class="lang-ar">تقوية الذاكرة العاملة والذكاء السائل.</span><span class="lang-en">Strengthening working memory and fluid intelligence.</span></li>
+                                    <li>♟️ <strong>الشطرنج (الإثنين):</strong> تفكير مستقبلي، يخدم خوارزميات AI.</li>
+                                    <li>🔢 <strong>سودوكو (الأربعاء):</strong> منطق واستنتاج، أساسي لتنقيح الأكواد (Debugging).</li>
+                                    <li>🧠 <strong>Dual N-Back (الجمعة):</strong> تقوية الذاكرة العاملة والذكاء السائل.</li>
                                 </ul>
                             </div>
                             <div class="bg-black/40 p-4 border border-[var(--sys-purple)]/30">
-                                <h4 class="font-bold text-[var(--sys-purple)] mb-2">
-                                    <span class="lang-ar">الرياضة ونظام PPL</span>
-                                    <span class="lang-en">Sports & PPL Routine</span>
-                                </h4>
+                                <h4 class="font-bold text-[var(--sys-purple)] mb-2">الرياضة ونظام PPL</h4>
                                 <ul class="space-y-2 text-slate-300">
-                                    <li>🏀 <strong><span class="lang-ar">الأحد والثلاثاء:</span><span class="lang-en">Sun & Tue:</span></strong> <span class="lang-ar">كرة سلة + Push (صدر + أكتاف) / Pull (ظهر + بيسابس).</span><span class="lang-en">Basketball + Push (Chest/Shoulders) / Pull (Back/Biceps).</span></li>
-                                    <li>🥊 <strong><span class="lang-ar">الإثنين:</span><span class="lang-en">Monday:</span></strong> <span class="lang-ar">مواي تاي + Legs (أفخاذ + سمانة).</span><span class="lang-en">Muay Thai + Legs (Quads/Calves).</span></li>
-                                    <li>⚽ <strong><span class="lang-ar">الأربعاء والسبت:</span><span class="lang-en">Wed & Sat:</span></strong> <span class="lang-ar">كرة قدم + Pull (ظهر + بيسابس) / سكس باك Abs . تراي Triceps.</span><span class="lang-en">Football + Pull (Back/Biceps) / Abs . Triceps.</span></li>
-                                    <li>🥋 <strong><span class="lang-ar">الخميس:</span><span class="lang-en">Thursday:</span></strong> <span class="lang-ar">جيجيتسو (BJJ) + سكس باك Abs . تراي Triceps .</span><span class="lang-en">Jiu-Jitsu (BJJ) + Abs . Triceps.</span></li>
-                                    <li>🚶 <strong><span class="lang-ar">الخميس:</span><span class="lang-en">Thursday:</span></strong> <span class="lang-ar">مشي هادئ + Push (صدر + أكتاف).</span><span class="lang-en">Calm walk + Push (Chest/Shoulders).</span></li>
+                                    <li>🏀 <strong>الأحد والثلاثاء:</strong> كرة سلة + Push (صدر + أكتاف) / Pull (ظهر + بيسابس).</li>
+                                    <li>🥊 <strong>الإثنين:</strong> مواي تاي + Legs (أفخاذ + سمانة).</li>
+                                    <li>⚽ <strong>الأربعاء والسبت:</strong> كرة قدم + Pull (ظهر + بيسابس) / سكس باك Abs . تراي Triceps.</li>
+                                    <li>🥋 <strong>الخميس:</strong> جيجيتسو (BJJ) + سكس باك Abs . تراي Triceps .</li>
+                                    <li>🚶​ <strong>الخميس:</strong>  مشي هادئ + Push (صدر + أكتاف).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-black/40 p-4 border border-[var(--sys-purple)]/30">
+                                <h4 class="font-bold text-[var(--sys-purple)] mb-2" style="color: bisque;">ثالثاً: التوزيع الأسبوعي الرياضة و الوثائقيات وتكوير الذات + الألعاب الذهنية</h4>
+                                <ul class="space-y-2 text-slate-300">
+                                    <li>🏀 <strong> تم اختيار أفضل 3 ألعاب ذهنية تخدم عقلية المبرمج والرياضي، وتوزيعها على أيام "الفراغ الذهني" النسبي:</strong>
+                                        
+                                         <br>
+
+<br>
+الأحد	كرة سلة	صنع الكتاب الرقمي (الجلسة 1), صنع الكتاب الرقمي (مرحلة التنسيق	Pull (ظهر + بيسابس)
+<br>
+الإثنين	مواي تاي (Muay Thai)	اللعبة 1: الشطرنج (Chess) + وثائقي	Legs (أفخاذ + سمانة)
+<br>
+الثلاثاء	كرة سلة 	قراءة كتب+دوباميكافين	Push (صدر + أكتاف)
+<br>
+الأربعاء	كرة قدم	اللعبة 2: السودوكو (Hard Sudoku) + وثائقي	Pull (ظهر + بيسابس)
+<br>
+الخميس	جيجيتسو (BJJ)	قراءة كتب+دوباميكافين	سكس باك Abs . تراي Triceps 
+<br>
+الجمعة	اللعبة 3: Dual N-Back	صنع الكتاب الرقمي (التدقيق النهائي)	Push (صدر + أكتاف)
+<br>
+السبت	كرة قدم	تطوير الذات (تقييم الأسبوع)	سكس باك Abs . تراي Triceps
+</li>
+                                  
                                 </ul>
                             </div>
                         </div>
@@ -682,98 +418,218 @@
 
                     <!-- Section 4: Special Days -->
                     <section>
-                        <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center gap-2">
-                            <span class="text-2xl">🔥</span> 
-                            <span class="lang-ar">خامساً: الأيام الخاصة (خميس، جمعة، سبت)</span>
-                            <span class="lang-en">Fifth: Special Days (Thu, Fri, Sat)</span>
-                        </h3>
+                        <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center gap-2"><span class="text-2xl">🔥</span> رابعاً: الأيام الخاصة (خميس، جمعة، سبت)</h3>
                         <div class="space-y-4">
                             <div class="p-4 bg-slate-900 border-r-4 border-amber-500">
-                                <strong class="text-amber-400 text-lg">
-                                    <span class="lang-ar">خميس الإنجاز:</span>
-                                    <span class="lang-en">Thursday of Achievement:</span>
-                                </strong> 
+                                <strong class="text-amber-400 text-lg">خميس الإنجاز:</strong> 
                                 <br>
-                                <span class="lang-ar">• قران كريم تكرار وورد ساعة ونصف</span><span class="lang-en">• Quran repetition and reading for 1.5 hours</span><br>
-                                <span class="lang-ar">• كتاب التوحيد + رياض الصالحين + البداية والنهاية + أحكام التجويد لمدة ثلاث ساعات</span><span class="lang-en">• Tawheed Book + Riyad As-Salihin + Al-Bidayah wa An-Nihayah + Tajweed for 3 hours</span><br>
-                                <span class="lang-ar">• مراجعة مصطلحات إنجليزية لمدة ساعتين</span><span class="lang-en">• English vocabulary review for 2 hours</span><br>
-                                <span class="lang-ar">• صنع وتعلم الموسيقى وتعلم إستعمال الغيتار والبيانو لمدة ساعة</span><span class="lang-en">• Music making, Guitar & Piano learning for 1 hour</span><br>
-                                <span class="lang-ar">• لمدة ساعة ونصف Legs (أفخاذ + سمانة)</span><span class="lang-en">• Legs workout (Quads + Calves) for 1.5 hours</span><br>
-                                <span class="lang-ar">• سماع قران كريم تدبر وتحسين نبرة الصوت لمدة ساعة واحدة</span><span class="lang-en">• Quran listening and voice improvement for 1 hour</span><br>
-                                <span class="lang-ar">• |ساعتين ماراثون مواد الحفظ: (تاريخ وجغرافيا + علوم إسلامية) باستخدام الخرائط الذهنية.</span><span class="lang-en">• 2-hour Memorization Marathon (History, Geo, Islamic Sc) using Mind Maps.</span><br>
-                                <span class="lang-ar">• |ساعتين مهارات اللغات: (فرنسية وعربية وإنجليزية) - معالجة القواعد كأنها "منطق برمجي".</span><span class="lang-en">• 2-hour Language Skills (French, Arabic, English) - Treating grammar as "Programming Logic".</span><br>
-                                <span class="lang-ar">• قراءة كتب+دوباميكافين ساعة ونصف</span><span class="lang-en">• Book Reading + Dopamicaffine for 1.5 hours</span><br>
-                                <span class="lang-ar">• جيجيتسو ساعة واحدة (BJJ)</span><span class="lang-en">• Jiu-Jitsu (BJJ) for 1 hour</span><br>
-                                <span class="lang-ar">• تطوير مواقع وجني المال لمدة ساعة ونصف</span><span class="lang-en">• Web development and freelancing for 1.5 hours</span><br>
-                                <span class="lang-ar">• |ساعة واحدة قنوات اليوتيوب صناعة المحتوى: تصوير الفيديوهات والـ Hooks القوية.</span><span class="lang-en">• 1-hour YouTube Content Creation: Shooting videos and strong Hooks.</span>
+•	قران كريم تكرار وورد ساعة ونصف
+<br>
+•	كتاب التوحيد + رياض الصالحين + البداية والنهاية + أحكام التجويد لمدة ثلاث ساعات
+<br>
+•	مراجعة مصطلحات إنجليزية لمدة ساعتين
+<br>
+•	صنع وتعلم الموسيقى وتعلم إستعمال الغيتار والبيانو لمدة ساعة 
+•	  لمدة ساعة ونصفLegs (أفخاذ + سمانة)
+<br>
+•	سماع قران كريم تدبر وتحسين نبرة الصوت لمدة ساعة واحدة
+<br>
+•	|ساعتين ماراثون مواد الحفظ: (تاريخ وجغرافيا + علوم إسلامية المنهاج الدراسي) باستخدام الخرائط الذهنية.
+<br>
+•	|ساعتين مهارات اللغات: (فرنسية وعربية و إنجليزية المنهاج الدراسي) - معالجة القواعد كأنها "منطق برمجي".
+<br>
+•	قراءة كتب+دوباميكافين ساعة ونصف
+<br>
+•	جيجيتسو ساعة واحدة (BJJ)
+<br>
+•	تطوير مواقع وجني المال لمدة ساعة ونصف
+<br>
+•	|ساعة واحدة قنوات اليوتيوب صناعة المحتوى (Onyx Apex + ren gaming + تلاوات القارئ عيساوي محمد أويس + موسيقى): تصوير الفيديوهات والـ Hooks القوية.
+.
                             </div>
-                            
                             <div class="p-4 bg-slate-900 border-r-4 border-emerald-500">
-                                <strong class="text-emerald-400 text-lg">
-                                    <span class="lang-ar">جمعة الإبداع:</span>
-                                    <span class="lang-en">Friday of Creativity:</span>
-                                </strong> 
+                                <strong class="text-emerald-400 text-lg">جمعة الإبداع:</strong> 
+                                <br>•	05:00 - 08:00 ثلاث ساعات: سورة الكهف + أذكار الصباح + مراجعة شاملة لدروس الأسبوع  علوم. ط
                                 <br>
-                                <span class="lang-ar">• 05:00 - 08:00 ثلاث ساعات: سورة الكهف + أذكار الصباح + مراجعة شاملة لدروس الأسبوع علوم. ط</span><span class="lang-en">• 05:00 - 08:00 (3 hrs): Surat Al-Kahf + Morning Adhkar + Science Weekly Review</span><br>
-                                <span class="lang-ar">• تعلم حرفة حلاقة الشعر صالون لمدة ساعة واحدة</span><span class="lang-en">• Learn barbering skills for 1 hour</span><br>
-                                <span class="lang-ar">• لمدة ساعتين ونصف: المونتاج الاحترافي للمحتوى المصور.</span><span class="lang-en">• 2.5 hours of Professional Video Editing.</span><br>
-                                <span class="lang-ar">• تعلم ألعاب الخفة لمدة ساعة واحدة</span><span class="lang-en">• Learn magic tricks for 1 hour</span><br>
-                                <span class="lang-ar">• 4 ساعات متواصلة: البرمجة ومراقبة المشاريع (AiMoha)، تحليل المنافسين، إنستقرام، تطوير المواقع وجني المال.</span><span class="lang-en">• 4 hours straight: Programming, Project Monitoring (AiMoha), Competitor Analysis, Instagram, Web Dev.</span><br>
-                                <span class="lang-ar">• جلسة Dual N-Back (تمرين ذهني مكثف 20 دقيقة) + مشي هادئ وصنع الكتاب الرقمي</span><span class="lang-en">• Dual N-Back Session (20 min mental workout) + Calm Walk & Digital Book creation</span>
+•	تعلم حرفة حلاقة الشعر صالون لمدة ساعة واحدة
+<br>
+•	لمدة ساعتين ونصف: المونتاج الاحترافي للمحتوى المصور.
+<br>
+•	تعلم ألعاب الخفة لمدة ساعة واحدة
+<br>
+•	4 ساعات متواصلة: كل مايخص البرمجة مراقبة المشاريع: مراجعة أكواد AiMoha وتحديثات السيرفرات + تحليل المنافسين مراقبة إنستقرام ويوتيوب وإستلهام الأفكار وصنع مواقع وجني المال .
+<br>
+•	: جلسة Dual N-Back (تمرين ذهني مكثف لمدة 20 دقيقة) + مشي هادئ صنع الكتاب الرقمي و
+<br>
+
                             </div>
-                            
                             <div class="p-4 bg-slate-900 border-r-4 border-sky-500">
-                                <strong class="text-sky-400 text-lg">
-                                    <span class="lang-ar">سبت الإتقان:</span>
-                                    <span class="lang-en">Saturday of Mastery:</span>
-                                </strong>
+                                <strong class="text-sky-400 text-lg">سبت الإتقان:</strong><br>
+                                 •	05:00 - 10:00: مراجعة شاملة لدروس الأسبوع ( فيزياء ). قران كريم حفظ جديد وورد 5 ساعات متواصلة
+                                 <br>
+•	 تعلم الهكر الاخلاقي + مراجعة مصطلحات إنجليزية10:00 - 14:00 lll 4 ساعات متواصلة
+<br>
+•	سماع قران كريم تدبر و تحسين نبرة الصوت لمدة ساعة واحدة
+<br>
+•	  ساعة واحدةPush (صدر + أكتاف)
+<br>
+•	17:00 - 18:30: كرة القدم: تفريغ الطاقة البدنية الكاملة.
+<br>
+•	غيتارة وبيانو تعلم وصنع موسيقى 2 ساعات
+<br>
+•	تطوير الذات (تقييم الأسبوع) ساعة واحدة أو 45 دقيقة
+<br>
+•	مراقبة المشاريع المطورة تطوير الويب لمدة ساعة واحدة
+<br>
+•	20:30 - 21:30: تحديث قائمة "المهام الصعبة" للأسبوع القادم.
+<br>
+
+                            </div>
+                             <section>
+                        <h3   class="text-xl font-bold text-amber-400 mb-4 flex items-center gap-2" style="color: aqua;" ><span class="text-2xl">👻​</span> سادساً: التوجيهات الفنية للأداء الأقصى </h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-slate-900 border-r-4 border-amber-500">
+                                <strong class="text-amber-400 text-lg">ملاحظة حاسمة لعمرك (16-17 سنة:</strong> 
+                                <br>•	في الإنجليزية (10:30 - 12:00): استمر في استماع بودكاست Lex Fridman؛ المصطلحات التي ستلتقطها هي وقودك في "أكاديمية AI".
+                               <br>
+•	في نظام PPL: ركز في أيام (Push) على ثبات الـ Handstand، وفي أيام (Pull) على العقلة المتفجرة، وفي أيام (Legs) على قوة القفز.
+<br>
+•	في صنع الكتب: استخدم حصص (الأحد، الثلاثاء، الجمعة) لإنهاء الكتاب الرقمي؛ (كتابة، تصميم، تدقيق).
+<br>
+•	في البرمجة: ابدأ في دمج "المنطق" الذي تتعلمه من الشطرنج في بناء الـ Agents داخل مشروع AiMoha.
+<br>
+الفترة	التركيز	الهدف العملي
+<br>
+الشهر الأول	أساسيات Python + مكتبات البيانات	بناء برنامج بسيط يحلل ملف Excel ويستخرج رسوم بيانية.
+<br>
+الشهر الثاني	خوارزميات ML الأساسية	بناء نموذج يتوقع أسعار المنازل أو يصنف أنواع الزهور.
+<br>
+الشهر الثالث	Deep Learning و PyTorch	بناء شبكة عصبية تميز الأرقام المكتوبة بخط اليد.
+<br>
+الشهر الرابع	الـ LLMs والـ NLP	استخدام نموذج جاهز من Hugging Face لبناء "Bot" يلخص النصوص.
+<br>
+مع هذه الإضافات النوعية (السباحة، كرة السلة، الشوفان، والشعير)، أنت لم تعد تعتمد على النمو الطبيعي الهادئ فقط، بل قمت بتفعيل "نظام التحفيز الأقصى".
+<br>
+عندما نجمع بين رياضات التمدد (السباحة والسلة) مع مغذيات دقيقة مثل الزنك والمغنيسيوم (الشوفان والخضر) والكالسيوم، ترتفع التوقعات بشكل ملحوظ.
+<br>
+تقدير الزيادة المتوقعة بعد الإضافات:
+<br>
+الفترة الزمنية	الزيادة (بالنظام القديم)	الزيادة (بالنظام المتكامل الجديد)
+<br>
+بعد 3 أشهر	0.5 - 1.5 سم	1.5 - 2.5 سم
+<br>
+بعد 6 أشهر	1.5 - 3 سم	3 - 5 سم
+<br>
+بعد عام كامل	2.5 - 5 سم	5 - 8 سم (كحد أقصى مثالي)
+
                                 <br>
-                                <span class="lang-ar">• 05:00 - 10:00: مراجعة فيزياء + قرآن كريم حفظ جديد وورد 5 ساعات متواصلة</span><span class="lang-en">• 05:00 - 10:00: Physics Review + Quran Memorization for 5 hours straight</span><br>
-                                <span class="lang-ar">• تعلم الهكر الاخلاقي + مراجعة مصطلحات إنجليزية 4 ساعات متواصلة</span><span class="lang-en">• Ethical Hacking + English Vocab Review for 4 hours</span><br>
-                                <span class="lang-ar">• سماع قران كريم تدبر و تحسين نبرة الصوت لمدة ساعة واحدة</span><span class="lang-en">• Quran listening and voice improvement for 1 hour</span><br>
-                                <span class="lang-ar">• ساعة واحدة Push (صدر + أكتاف)</span><span class="lang-en">• 1 hour Push workout (Chest + Shoulders)</span><br>
-                                <span class="lang-ar">• 17:00 - 18:30: كرة القدم: تفريغ الطاقة البدنية الكاملة.</span><span class="lang-en">• 17:00 - 18:30: Football (Full physical energy release)</span><br>
-                                <span class="lang-ar">• غيتارة وبيانو تعلم وصنع موسيقى 2 ساعات</span><span class="lang-en">• Guitar & Piano music creation for 2 hours</span><br>
-                                <span class="lang-ar">• تطوير الذات (تقييم الأسبوع) ساعة واحدة</span><span class="lang-en">• Self-development (Weekly Review) 1 hour</span><br>
-                                <span class="lang-ar">• مراقبة المشاريع المطورة تطوير الويب لمدة ساعة واحدة</span><span class="lang-en">• Project monitoring & Web Dev for 1 hour</span><br>
-                                <span class="lang-ar">• 20:30 - 21:30: تحديث قائمة "المهام الصعبة" للأسبوع القادم.</span><span class="lang-en">• 20:30 - 21:30: Updating "Hard Quests" list for next week.</span>
+                                
+بما أنك من مواليد 2009، فهذه الإضافات قد تكون هي السبب في إبقاء صفائح النمو "مفتوحة" لفترة أطول. الرياضة والنمط الصحي يؤخران أحياناً انغلاق العظام، مما يعطيك سنوات إضافية من الطول لم تكن لتكسبها لو كنت قليل النشاط.
+<br>
+نصيحة "محترفين":
+<br>
+لتحقيق رقم الـ 5 سم في 6 أشهر، اجعل تركيزك في السباحة على "تمارين الإطالة داخل الماء"، وفي كرة السلة على "القفز للوصول لأقصى نقطة ممكنة".
+<br>
+
+                            </div>
+                            <div class="p-4 bg-slate-900 border-r-4 border-emerald-500">
+                                <strong class="text-emerald-400 text-lg">لماذا زادت التوقعات مع هذه الإضافات؟</strong> 
+   <br>                             
+1.	استغلال "هوامش القوام": السباحة وكرة السلة والتعلق يمكن أن تمنحك زيادة 2 سم تقريباً من خلال تعديل استقامة العمود الفقري فقط، وهي زيادة "ميكانيكية" تضاف فوق النمو "العظمي".
+<br>
+2.	تنشيط هرمون النمو (HGH): ممارسة الرياضة المكثفة مع تناول الشوفان (الذي يحافظ على استقرار السكر) يجعل جسمك يفرز هرمون النمو بكفاءة أكبر بمرتين من الشخص الخامل.
+<br>
+3.	توسيع الغضاريف: السباحة تسمح للغضاريف الموجودة بين مفاصل الأرجل والفقرات بالامتلاء بالسوائل والتمدد، مما يعطيك ميليمترات إضافية في كل مفصل، وعند جمعها تحصل على سنتيمترات واضحة
+<br>
+
+
                             </div>
                         </div>
                     </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center gap-2" style="color: aqua;">
-                            <span class="text-2xl">👻</span> 
-                            <span class="lang-ar">سادساً: التوجيهات الفنية للأداء الأقصى</span>
-                            <span class="lang-en">Sixth: Technical Guidelines for Peak Performance</span>
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="p-4 bg-slate-900 border-r-4 border-amber-500">
-                                <strong class="text-amber-400 text-lg">
-                                    <span class="lang-ar">ملاحظة حاسمة لعمرك (16-17 سنة):</span>
-                                    <span class="lang-en">Crucial Note for your age (16-17 years):</span>
-                                </strong> 
-                                <br>
-                                <span class="lang-ar">• في الإنجليزية (10:30 - 12:00): استمر في استماع بودكاست Lex Fridman؛ المصطلحات هي وقودك في "أكاديمية AI".</span><span class="lang-en">• In English (10:30-12:00): Keep listening to Lex Fridman Podcast; terms are your fuel for "AI Academy".</span><br>
-                                <span class="lang-ar">• في نظام PPL: ركز في أيام (Push) على ثبات الـ Handstand، و (Pull) على العقلة المتفجرة، و (Legs) على قوة القفز.</span><span class="lang-en">• In PPL: Focus on Handstand hold (Push), Explosive Pull-ups (Pull), and Jump Power (Legs).</span><br>
-                                <span class="lang-ar">• في صنع الكتب: استخدم حصص (الأحد، الثلاثاء، الجمعة) لإنهاء الكتاب الرقمي.</span><span class="lang-en">• In Book Creation: Use (Sun, Tue, Fri) sessions to finish the digital book.</span><br>
-                                <span class="lang-ar">• في البرمجة: ابدأ في دمج "المنطق" من الشطرنج في بناء الـ Agents داخل AiMoha.</span><span class="lang-en">• In Programming: Merge "Logic" from Chess into building Agents inside AiMoha.</span><br>
-                                <br>
-                                <span class="lang-ar">الجدول البرمجي الشهري:</span><span class="lang-en">Monthly Programming Schedule:</span><br>
-                                <span class="lang-ar">• الشهر الأول: أساسيات Python + مكتبات البيانات (بناء برنامج يحلل Excel).</span><span class="lang-en">• Month 1: Python Basics + Data Libraries (Build Excel analyzer).</span><br>
-                                <span class="lang-ar">• الشهر الثاني: خوارزميات ML الأساسية (بناء نموذج توقع أسعار/تصنيف).</span><span class="lang-en">• Month 2: Core ML Algorithms (Build Price Predictor/Classifier).</span><br>
-                                <span class="lang-ar">• الشهر الثالث: Deep Learning و PyTorch (بناء شبكة تميز الأرقام).</span><span class="lang-en">• Month 3: Deep Learning & PyTorch (Build digit-recognizing neural net).</span><br>
-                                <span class="lang-ar">• الشهر الرابع: الـ LLMs والـ NLP (بناء Bot يلخص النصوص).</span><span class="lang-en">• Month 4: LLMs & NLP (Build text-summarizing Bot).</span>
-                            </div>
-                        </div>
+                    
+                    <!-- Section 5: Height Strategy -->
+                    <section class="border-t border-slate-700 pt-6 mt-6">
+                        <h3 class="text-xl font-bold text-rose-400 mb-4">🧬 خامساً: استراتيجية النمو القصوى (الطول)</h3>
+                        <p class="text-slate-300 mb-3">تفعل "نظام التحفيز الأقصى" عبر السباحة، كرة السلة، الشوفان، والشعير. تنشيط HGH وتوسيع الغضاريف.</p>
+                        <table class="w-full text-center sys-table text-sm">
+                            <thead>
+                                <tr>
+                                    <th class="p-2 text-rose-400">المدة</th>
+                                    <th class="p-2">الزيادة الطبيعية</th>
+                                    <th class="p-2 text-emerald-400 font-bold">الزيادة بالنظام الجديد</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-300">
+                                <tr><td class="p-2">بعد 3 أشهر</td><td class="p-2">0.5 - 1.5 سم</td><td class="p-2 text-emerald-400">1.5 - 2.5 سم</td></tr>
+                                <tr><td class="p-2">بعد 6 أشهر</td><td class="p-2">1.5 - 3 سم</td><td class="p-2 text-emerald-400">3 - 5 سم</td></tr>
+                                <tr><td class="p-2">بعد عام كامل</td><td class="p-2">2.5 - 5 سم</td><td class="p-2 text-emerald-400 font-bold">5 - 8 سم (كحد أقصى)</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="mt-3 text-xs text-slate-500 italic">ملاحظة لـ 2009: الرياضة والنمط الصحي يؤخران انغلاق صفائح النمو العظمية.</p>
                     </section>
                 </div>
             </div>
+
         </main>
     </div>
-<script>
-    // System Language Script: يجب وضعه قبل نهاية الـ body
-   
+
+    
+    <!-- Timer Settings Modal -->
+    <div id="timerModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/80 backdrop-blur-sm transition-opacity">
+        <div class="sl-panel p-8 w-full max-w-sm mx-4">
+            <h3 class="sys-font text-xl font-black text-[var(--sys-cyan)] mb-6 text-center uppercase tracking-widest border-b border-white/10 pb-4">Set Quest Timer</h3>
+            <div class="flex justify-center gap-6 mb-8 text-center">
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Hours</label>
+                    <input type="number" id="inputHours" min="0" max="23" value="5" class="w-20 bg-black/50 border border-[var(--sys-cyan)] py-3 text-center text-2xl sys-font text-white outline-none focus:shadow-[0_0_15px_var(--sys-cyan)]">
+                </div>
+                <div class="text-3xl text-[var(--sys-cyan)] font-bold self-center pt-4">:</div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Minutes</label>
+                    <input type="number" id="inputMinutes" min="0" max="59" value="0" class="w-20 bg-black/50 border border-[var(--sys-cyan)] py-3 text-center text-2xl sys-font text-white outline-none focus:shadow-[0_0_15px_var(--sys-cyan)]">
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="Pomodoro.saveSettings()" class="flex-1 sl-btn text-white font-bold py-3 uppercase sys-font tracking-widest">Confirm</button>
+                <button onclick="UI.toggleTimerSettings()" class="flex-1 bg-transparent border border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white font-bold py-3 transition-colors uppercase sys-font">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Milestone Achievement Modal (LEVEL UP) -->
+    <div id="milestoneModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/90 backdrop-blur-md transition-opacity">
+        <div class="sl-panel p-1 border-2 border-[var(--sys-cyan)] w-full max-w-2xl mx-4 text-center animate-system-pop overflow-hidden shadow-[0_0_50px_rgba(0,240,255,0.4)]">
+            <div class="border border-[var(--sys-purple)] p-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz4KPC9zdmc+')]">
+                
+                <div class="sys-font text-[var(--sys-cyan)] tracking-[0.5em] mb-2 font-bold drop-shadow-[0_0_5px_var(--sys-cyan)]">SYSTEM NOTIFICATION</div>
+                
+                <h2 class="sys-font text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-[var(--sys-cyan)] mb-1 drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">
+                    LEVEL UP
+                </h2>
+                <div class="text-white font-bold mb-8 tracking-widest text-lg">
+                    لقد ارتقيت في المستوى!
+                </div>
+                
+                <div class="flex justify-center items-center gap-6 mb-8">
+                    <div class="sys-font text-4xl text-slate-500 line-through decoration-[var(--sys-purple)]" id="milestoneOldLevel">29</div>
+                    <span class="text-3xl text-[var(--sys-cyan)]">➤</span>
+                    <div class="sys-font text-6xl text-[var(--sys-cyan)] sl-glow-text font-black" id="milestoneLevelText">30</div>
+                </div>
+                
+                <div class="bg-black/50 border-l-4 border-[var(--sys-purple)] p-4 text-right mb-8">
+                    <p id="milestoneMessage" class="text-[var(--sys-cyan)] text-lg leading-relaxed font-bold">
+                        رسالة النظام التلقائية ستظهر هنا.
+                    </p>
+                </div>
+                
+                <button onclick="Milestone.hide()" class="sl-btn text-white font-black py-4 px-16 text-lg tracking-widest uppercase sys-font border-2">
+                    ACCEPT (متابعة)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
         const SoundEffects = {
             synth: new Tone.PolySynth(Tone.Synth).toDestination(),
             epicSynth: new Tone.PolySynth(Tone.Synth).toDestination(),
@@ -932,20 +788,7 @@
             updateCounters() {
                 document.getElementById('cnt-all').textContent = State.tasks.length; document.getElementById('cnt-active-val').textContent = State.tasks.filter(t => !t.completed).length;
             },
-            toggleTimerSettings() {
-                SoundEffects.playSystemClick();
-                const modal = document.getElementById('timerModal');
-                if (!modal) return;
-                if (modal.classList.contains('hidden')) {
-                    const hours = Math.floor(Pomodoro.defaultTime / 3600);
-                    const minutes = Math.floor((Pomodoro.defaultTime % 3600) / 60);
-                    const inputHours = document.getElementById('inputHours');
-                    const inputMinutes = document.getElementById('inputMinutes');
-                    if (inputHours) inputHours.value = hours;
-                    if (inputMinutes) inputMinutes.value = minutes;
-                }
-                modal.classList.toggle('hidden');
-            },
+            toggleTimerSettings() { SoundEffects.playSystemClick(); document.getElementById('timerModal').classList.toggle('hidden'); },
             escape(str) { const d = document.createElement('div'); d.textContent = str; return d.innerHTML; }
         };
 
@@ -1063,77 +906,6 @@
             // Set initial nav state properly
             document.getElementById('nav-all').classList.add('bg-[var(--sys-cyan)]', 'bg-opacity-10', 'text-[var(--sys-cyan)]', 'border');
         });
-
-    const SystemLang = {
-        // اللغة الافتراضية عند أول دخول للموقع
-        current: localStorage.getItem('system_lang') || 'ar',
-
-        // دالة المبادلة بين العربي والإنجليزي
-        toggle() {
-            this.current = this.current === 'ar' ? 'en' : 'ar';
-            this.apply();
-        },
-
-        // دالة تطبيق اللغة وتحديث خصائص النظام
-        apply() {
-            // 1. تحديث خاصية lang في وسم الـ html الرئيسي
-            document.documentElement.setAttribute('lang', this.current);
-            
-            // 2. تحديث اتجاه الصفحة (RTL للعربي و LTR للإنجليزي)
-            if (this.current === 'ar') {
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.body.classList.remove('font-en');
-                
-                // إعادة ضبط اتجاه جدول الميثاق ليتناسب مع العربي
-                const charterTable = document.querySelector('.sys-table');
-                if (charterTable) charterTable.setAttribute('dir', 'rtl');
-            } else {
-                document.documentElement.setAttribute('dir', 'ltr');
-                document.body.classList.add('font-en');
-                
-                // إعادة ضبط اتجاه جدول الميثاق ليتناسب مع الإنجليزي
-                const charterTable = document.querySelector('.sys-table');
-                if (charterTable) charterTable.setAttribute('dir', 'ltr');
-            }
-
-            // 3. حفظ خيار المستخدم في ذاكرة المتصفح المحلية
-            localStorage.setItem('system_lang', this.current);
-            
-            // 4. إصدار صوت نظام بسيط (اختياري، مجهز ليتوافق مع مكتبة Tone.js المدمجة لديك)
-            this.playSystemSound();
-        },
-
-        // دالة اختيارية لإحداث صوت تأثيري من مكتبة Tone.js عند التغيير
-        playSystemSound() {
-            try {
-                if (typeof Tone !== 'undefined' && Tone.context && Tone.context.state === 'running') {
-                    const synth = new Tone.Synth().toDestination();
-                    synth.volume.value = -15; // خفض الصوت ليكون مريحاً
-                    synth.triggerAttackRelease(this.current === 'en' ? "C5" : "E5", "16n");
-                }
-            } catch (e) {
-                console.log("System Audio Note: Context not started yet.");
-            }
-        },
-
-        // دالة التشغيل التلقائي فور تحميل الصفحة
-        init() {
-            this.apply();
-        }
-    };
-
-    // تشغيل النظام فوراً لتهيئة اللغة المحفوظة
-    SystemLang.init();
-    document.getElementById('start-btn').addEventListener('click', async () => {
-    // تفعيل الصوت بعد تفاعل المستخدم
-    await Tone.start(); 
-    console.log("الصوت جاهز الآن!");
-
-    // إخفاء الزر بعد الضغط عليه ليدخل المستخدم للموقع
-    document.getElementById('start-btn').style.display = 'none'; 
-});
-    
-</script>
+    </script>
 </body>
-
 </html>
